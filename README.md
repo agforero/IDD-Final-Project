@@ -31,6 +31,10 @@ So, for example, if a user wanted to punch in a lowercase `m`, they'd need to in
 
 If I could get 8 on/off switches, it would certainly make the device "cooler", but the device would function just fine with the use of copper tape instead. Everything else, aside from the wood in the Maker Lab, I have already.
 
+### Risks:
+
+The device, at its core, should be *fun* to use. It will be useful for teaching people about binary, but beyond that, the learning will only be affective if the device isn't tedious or annoying to operate. Thus, I'll have to pay special attention to HCI for this device: is it nice to hold? Are the inputs responsive? Does it accurately render characters when the characters are punched in?
+
 ### Fall-back plan:
 
 If this plan doesn't end up working out, I could also make a camera that tracks the movement of your head and turns to match it (useful for vloggers and the like).
