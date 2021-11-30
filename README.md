@@ -38,3 +38,10 @@ The device, at its core, should be *fun* to use. It will be useful for teaching 
 ### Fall-back plan:
 
 If this plan doesn't end up working out, I could also make a camera that tracks the movement of your head and turns to match it (useful for vloggers and the like).
+
+## Part 2: Prototype
+
+### Requirements:
+
+`pip install -r ../Interactive-Lab-Hub/Lab\ 4/requirements.txt`
+`pip install sparkfun-qwiic-button`
