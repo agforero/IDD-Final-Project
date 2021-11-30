@@ -58,7 +58,8 @@ def arrayToChar(arr):
     for i in range(8):
         ret += to_read[i] * base
         base *= 2
-    return chr(ret)
+
+    return f"\n{chr(ret)}\n"
 
 while True:
 
