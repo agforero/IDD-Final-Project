@@ -1,5 +1,3 @@
-# button libraries
-# import gfl
 import busio
 import board
 import time
@@ -50,8 +48,16 @@ start_time = time.process_time()
 gfl_times = [start_time for _ in range(8)]
 cooldown = 0.05
 
+global charKeys
+with open("data/charDisplays.txt", 'r') as cf:
+    raw = cf.read()
+    charKeys = {}
+    for line in raw.split("\n"):
+        idx, val = tuple(line.split())
+        charKeys[int(idx)] = val
+
 # function for converting array to char
-def arrayToChar(arr):
+def arrToChar(arr):
     to_read = arr[::-1]
     ret = 0
     base = 1
@@ -59,10 +65,22 @@ def arrayToChar(arr):
         ret += to_read[i] * base
         base *= 2
 
-    return f"\n{chr(ret)}\n"
+    return charKeys[ret]
 
+# function for printing list as a single string
+def arrToStr(arr):
+    ret = ""
+    for thing in arr:
+        ret.append(str(thing))
+    return ret
+
+# reset data.txt
+with open("data/data.txt", 'w') as r:
+    r.write("")
+
+# main loop
+f = open("data/data.txt", 'a')
 while True:
-
     # read in coppers
     for i in range(8):
         if (
@@ -76,13 +94,18 @@ while True:
     try:
         btn_status = read_register(device, STATUS)
         if (btn_status & IS_PRESSED) != 0:
-            print(arrayToChar(gfl))
+            to_write = f"WRITING {arrToChar(gfl)}"
+            f.write(to_write)
+
             gfl = [0 for _ in range(8)]
             time.sleep(1)
 
     except KeyboardInterrupt:
         write_register(device, STATUS, 0)
+        f.close()
         break
 
     time.sleep(0.05)
-    print(gfl)
+    #print(gfl)
+    to_write = f"{arrToStr(gfl)} {arrToChar(gfl)}"
+    f.write(to_write)
