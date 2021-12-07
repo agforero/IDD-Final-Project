@@ -73,7 +73,8 @@ class OutputApp(tk.Tk):
         
         #self.updateText()
 
-    def updateText(self):
+    def updateText(self, raw_data):
+        print(raw_data)
         f = open("data/data.txt", "r")
 
         try:
@@ -119,7 +120,7 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     print(f"topic: {msg.topic} msg: {msg.payload.decode('UTF-8')}")
-    app.updateText()
+    app.updateText(msg.payload.decode('UTF-8'))
 
 client.on_connect = on_connect
 client.on_message = on_message
