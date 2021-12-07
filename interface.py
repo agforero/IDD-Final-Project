@@ -30,6 +30,7 @@ class FieldText():
         for k in sortedKeys:
             ret += self.text[k]
 
+        print(self.address)
         print(self.text)
         print(ret)
         return ret
