@@ -69,18 +69,19 @@ class OutputApp(tk.Tk):
         self.charLabel = tk.Label(self.botDisplay, text="current char: ", font=self.uni)
         self.charDisp = tk.Text(self.botDisplay, height=1, font=self.uni, width=25)
 
-        # save button, below everything else
-        self.buttonDisplay = tk.Frame(self)
-        self.buttonDisplay.pack(side=tk.TOP)
-
-        self.saveButton = tk.Button(self.buttonDisplay, text="Save", command=self.writeOut)
-
         # packing elements in order
         self.sequenceLabel.pack(side=tk.LEFT)
         self.sequenceDisp.pack(side=tk.LEFT)
 
         self.charDisp.pack(side=tk.RIGHT)
         self.charLabel.pack(side=tk.RIGHT)
+
+        # save button, below everything else
+        self.buttonDisplay = tk.Frame(self)
+        self.buttonDisplay.pack(side=tk.TOP)
+
+        self.saveButton = tk.Button(self.buttonDisplay, text="Save", command=self.writeOut)
+        self.saveButton.pack(side=tk.TOP)
         
         self.updateText()
 
