@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # tkinter libraries
+from datetime import datetime
 import tkinter as tk
 import tkinter.font as tkFont
 import time
@@ -59,7 +60,7 @@ class OutputApp(tk.Tk):
 
         # current sequence and char
         self.botDisplay = tk.Frame(self)
-        self.botDisplay.pack(side=tk.BOTTOM)
+        self.botDisplay.pack(side=tk.TOP)
 
         # declaring elements
         self.sequenceLabel = tk.Label(self.botDisplay, text="current sequence: ", font=self.uni)
@@ -67,6 +68,12 @@ class OutputApp(tk.Tk):
 
         self.charLabel = tk.Label(self.botDisplay, text="current char: ", font=self.uni)
         self.charDisp = tk.Text(self.botDisplay, height=1, font=self.uni, width=25)
+
+        # save button, below everything else
+        self.buttonDisplay = tk.Frame(self)
+        self.buttonDisplay.pack(side=tk.TOP)
+
+        self.saveButton = tk.Button(self.buttonDisplay, text="Save", command=self.writeOut)
 
         # packing elements in order
         self.sequenceLabel.pack(side=tk.LEFT)
@@ -102,6 +109,12 @@ class OutputApp(tk.Tk):
         self.charDisp.insert(tk.END, self.data[1])
 
         self.after(10, self.updateText)
+
+    def writeOut(self):
+        now = datetime.now()
+        current_time = now.strftime("%m_%d_%y_%H_%M_%S")
+        with open(f"saved/{current_time}.py", 'w') as s:
+            s.write(self.fieldText.getText())
 
 if __name__ == "__main__":
     print("running!")
