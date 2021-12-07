@@ -71,7 +71,7 @@ def arrToChar(arr):
 def arrToStr(arr):
     ret = ""
     for thing in arr:
-        ret.append(str(thing))
+        ret += str(thing)
     return ret
 
 # reset data.txt
