@@ -74,9 +74,15 @@ def arrToStr(arr):
         ret += str(thing)
     return ret
 
-# reset data.txt
-with open("data/data.txt", 'w') as r:
-    r.write("00000000 null")
+# setting up mqtt
+import paho.mqtt.client as mqtt
+import uuid
+
+client = mqtt.Client(str(uuid.uuid1()))
+client.tls_set()
+client.username_pw_set("idd", "device@theFarm")
+
+client.connect("farlab.infosci.cornell.edu", port=8883)
 
 # main loop
 f = open("data/data.txt", 'a')

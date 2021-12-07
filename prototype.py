@@ -79,8 +79,8 @@ with open("data/data.txt", 'w') as r:
     r.write("00000000 null")
 
 # main loop
-f = open("data/data.txt", 'a')
 while True:
+    f = open("data/data.txt", 'a')
     # read in coppers
     for i in range(8):
         if (
@@ -96,6 +96,7 @@ while True:
         if (btn_status & IS_PRESSED) != 0:
             to_write = f"WRITING {arrToChar(gfl)}\n"
             f.write(to_write)
+            f.close()
 
             gfl = [0 for _ in range(8)]
             time.sleep(1)
@@ -109,3 +110,4 @@ while True:
     #print(gfl)
     to_write = f"{arrToStr(gfl)} {arrToChar(gfl)}\n"
     f.write(to_write)
+    f.close()
