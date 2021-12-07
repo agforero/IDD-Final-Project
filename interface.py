@@ -30,7 +30,8 @@ class FieldText():
         for k in sortedKeys:
             ret += self.text[k]
 
-        #print(ret) 
+        print(self.text)
+        print(ret)
         return ret
 
     def updateText(self, data):
