@@ -48,7 +48,7 @@ gfl = [0 for _ in range(8)]
 
 start_time = time.process_time()
 gfl_times = [start_time for _ in range(8)]
-cooldown = 0.05
+cooldown = 0.015
 
 global charKeys
 with open("data/charDisplays.txt", 'r') as cf:
