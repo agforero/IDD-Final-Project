@@ -1,6 +1,7 @@
 # tkinter libraries
 import tkinter as tk
 import tkinter.font as tkFont
+import time
 import sys
 
 def arrToInt(arr):
@@ -70,7 +71,7 @@ class OutputApp(tk.Tk):
         self.charDisp.pack(side=tk.RIGHT)
         self.charLabel.pack(side=tk.RIGHT)
         
-        self.updateText()
+        #self.updateText()
 
     def updateText(self):
         f = open("data/data.txt", "r")
@@ -97,9 +98,36 @@ class OutputApp(tk.Tk):
         self.sequenceDisp.insert(tk.END, self.data[0])
         self.charDisp.insert(tk.END, self.data[1])
 
-        self.after(10, self.updateText)
+        #self.after(10, self.updateText)
+        time.sleep(0.05)
+
+# reading in from MQTT
+import paho.mqtt.client as mqtt
+import uuid
+
+topic = "IDD/BSKeyboard"
+client = mqtt.Client(str(uuid.uuid1()))
+client.tls_set()
+client.username_pw_set('idd', 'device@theFarm')
+
+global app
+def on_connect(client, userdata, flags, rc):
+    print(f"connected with result code {rc}")
+    client.subscribe(topic)
+    app = OutputApp()
+    app.mainloop()
+
+def on_message(client, userdata, msg):
+    print(f"topic: {msg.topic} msg: {msg.payload.decode('UTF-8')}")
+    app.updateText()
+
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect("farlab.infosci.cornell.edu", port=8883)
 
 if __name__ == "__main__":
     print("running!")
-    app = OutputApp()
-    app.mainloop()
+    #app = OutputApp()
+    #app.mainloop()
+
+    client.loop_forever()
