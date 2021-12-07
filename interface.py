@@ -80,6 +80,9 @@ class OutputApp(tk.Tk):
         self.buttonDisplay = tk.Frame(self)
         self.buttonDisplay.pack(side=tk.TOP)
 
+        self.saveButtonPadding = tk.Label(self.buttonDisplay, text=" ", font=self.uni)
+        self.saveButtonPadding.pack(side=tk.TOP)
+
         self.saveButton = tk.Button(self.buttonDisplay, text="Save", command=self.writeOut)
         self.saveButton.pack(side=tk.TOP)
         
