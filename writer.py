@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import busio
 import board
 import time
@@ -96,10 +98,9 @@ while True:
         if (btn_status & IS_PRESSED) != 0:
             to_write = f"WRITING {arrToChar(gfl)}\n"
             f.write(to_write)
-            f.close()
+            #f.close()
 
             gfl = [0 for _ in range(8)]
-            time.sleep(1)
 
     except KeyboardInterrupt:
         write_register(device, STATUS, 0)

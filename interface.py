@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # tkinter libraries
 import tkinter as tk
 import tkinter.font as tkFont
@@ -77,13 +79,12 @@ class OutputApp(tk.Tk):
 
         try:
             self.data = f.readlines()[-1].split()
-            f.close()
 
         except:
             f.close()
             sys.exit(0)
 
-        print(self.data)
+        #print(self.data)
 
         # update big text field
         self.fieldText.updateText(self.data)
