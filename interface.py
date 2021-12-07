@@ -3,6 +3,7 @@
 # tkinter libraries
 import tkinter as tk
 import tkinter.font as tkFont
+import time
 import sys
 
 def arrToInt(arr):
@@ -28,16 +29,16 @@ class FieldText():
         sortedKeys.sort()
 
         for k in sortedKeys:
-            ret += self.text[k]
+            if k % 2 == 0:
+                ret += self.text[k]
 
-        print(self.address)
-        print(self.text)
-        print(ret)
         return ret
 
     def updateText(self, data):
+        #print(data[0])
         if data[0] == "WRITING":
             self.address += 1
+            time.sleep(1)
 
         try: self.char = data[1]
         except: self.char = "?"

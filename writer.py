@@ -67,7 +67,11 @@ def arrToChar(arr):
         ret += to_read[i] * base
         base *= 2
 
-    return charKeys[ret]
+    try:
+        return charKeys[ret]
+
+    except KeyError:
+        return charKeys[0]
 
 # function for printing list as a single string
 def arrToStr(arr):
@@ -82,7 +86,7 @@ with open("data/data.txt", 'w') as r:
 
 # main loop
 while True:
-    f = open("data/data.txt", 'a')
+    #f = open("data/data.txt", 'a')
     # read in coppers
     for i in range(8):
         if (
@@ -97,7 +101,11 @@ while True:
         btn_status = read_register(device, STATUS)
         if (btn_status & IS_PRESSED) != 0:
             to_write = f"WRITING {arrToChar(gfl)}\n"
-            f.write(to_write)
+
+            with open("data/data.txt", 'a') as f:
+                f.write(to_write)
+
+            time.sleep(1)
 
             gfl = [0 for _ in range(8)]
 
@@ -108,5 +116,6 @@ while True:
 
     time.sleep(0.05)
     to_write = f"{arrToStr(gfl)} {arrToChar(gfl)}\n"
-    f.write(to_write)
-    f.close()
+    with open("data/data.txt", 'a') as f:
+        f.write(to_write)
+    #f.close()
