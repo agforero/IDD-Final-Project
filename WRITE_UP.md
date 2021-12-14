@@ -100,3 +100,7 @@ A problem I encountered while creating the project was the lack of a cooldown fo
 For the IDE created for the final prototype, I used TKinter to create a class that would hold the UI. The main function governing the UI was `OutputApp.updateText()`, which recursively updates the text contained in the IDE. This recursion is important, as using just a normal call to `tkinter.tk.mainloop()` would only run the rendering once and prevent the main text field from updating dynamically. At this point, I was able to code in the main text field that displays the text as the user inputs it from the keyboard.
 
 Finally, to make everything work together using only a single command, I created `start_script.sh` to kickstart all relevant Python programs. The writer (writer.py) has to start before the interface (interface.py), so the Bash script starts the first process in the background, and kills it when the script is complete.
+
+## How I Would Improve
+
+The biggest thing I can think of here is using actual electrical switches. I tried to add these to the project, but I couldn't figure out how to have the input board read changes in them, unless my finger was just touching the switch. It would be lovely if the switches did the job the copper tape does now, since it would negate the need to display current states on the IDE itself, and allow the switches to spell out for themselves what input the user currently has selected.
