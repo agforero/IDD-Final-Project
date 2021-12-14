@@ -2,6 +2,8 @@
 
 ![fig0](figs/img6.jpg)
 
+### [Click here](https://youtu.be/cLL6Gk9tObA) to see a video of me using the BSKeyboard!
+
 ## The Why
 
 Why did I bother making this thing? What's the point of having a keyboard that forces you to use binary input for every character? It's seemingly slow and inefficient, and demands that the user has an understanding of binary (or has a key available that tells them all possible binary values for each character).
@@ -103,4 +105,8 @@ Finally, to make everything work together using only a single command, I created
 
 ## How I Would Improve
 
-The biggest thing I can think of here is using actual electrical switches. I tried to add these to the project, but I couldn't figure out how to have the input board read changes in them, unless my finger was just touching the switch. It would be lovely if the switches did the job the copper tape does now, since it would negate the need to display current states on the IDE itself, and allow the switches to spell out for themselves what input the user currently has selected.
+The biggest thing I can think of here is using actual electrical switches. I tried to add these to the project, but I couldn't figure out how to have the input board read changes in them, unless my finger was just touching the switch. It would be lovely if the switches did the job the copper tape does now, since it would negate the need to display current states on the IDE itself, and allow the switches to spell out for themselves what input the user currently has selected. Finally, I could use a better way to communicate what codes correspond to each character: I could tell that my users had a bit of a hard time looking back and forth to the answer key I provided them.
+
+## What I Have Learned 
+
+I've learned quite a bit about TKinter -- how to use recursion to make the interface update dynamically, tricks needed to continually read in from a certain input file, etcetera. I also learned how to make an elegant-looking device that services the needs of the user. During class, I could tell people enjoyed hitting the green button and seeing their inputs appear. Finally, I learned what it's like to put into practice a device you've had sitting around your head for a while. It was immensely satisfying to see the device working in action once everything was complete, and I think people genuinely had a fun time messing with the controls and seeing their input displayed.
