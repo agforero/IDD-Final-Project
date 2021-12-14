@@ -46,3 +46,7 @@ If this plan doesn't end up working out, I could also make a camera that tracks 
 `pip install -r ../Interactive-Lab-Hub/Lab\ 4/requirements.txt`
 
 ### [Here's a video](https://youtu.be/cLL6Gk9tObA) of the prototype working!! 🎬
+
+## Part 3: Write-Up
+
+Click [here](WRITE_UP.md) to see the write-up explaining my process!
